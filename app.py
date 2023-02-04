@@ -15,7 +15,7 @@ def ValuePredictor(query):
 def predict():
     if request.method == 'POST':
         content = request.get_json(force = True)
-        df = pd.json_normalize(content)
+        df = pd.json_normalize(json.loads(content))
         le = LabelEncoder()
         df['title'] = le.fit_transform(df['title'])
         df['location'] = le.fit_transform(df['location'])
@@ -37,4 +37,4 @@ def welcome():
         return "Welcome to job finder"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
