@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from joblib import load
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
+import json
 
 app = Flask(__name__)
 
